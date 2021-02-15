@@ -1,0 +1,31 @@
+.auth-component-container {
+  margin-top: 60px;
+  height: 90vh;
+  width: 100vw;
+}
+
+.auth-form-container {
+  width: 80vw;
+  margin: 0 auto;
+  margin-top: 20vh;
+  background-color: #f9f9f9;
+  
+}
+
+.auth-title {
+  text-align: center;
+  padding-top: 15px;
+}
+
+.auth-form {
+  width: 70vw;
+  margin: 15px auto;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.auth-button {
+ position: relative;
+ width: 40%;
+ left: 30%;
+}
