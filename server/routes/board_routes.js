@@ -1,10 +1,13 @@
 const express = require('express')
 const router = express.Router();
-const {createBoard, updateBoardTitle, deleteBoard  } = require('./../controllers/board_controller')
+const {createBoard, updateBoardTitle, deleteBoard, getBoard } = require('./../controllers/board_controller')
 const {createToDo, updateToDoTitle, deleteToDo} = require('./../controllers/todo_controller')
 const {createCard, updateCard, deleteCard, createChecklistItem, updateChecklistItem, deleteChecklistItem} = require('./../controllers/card_controller')
 
 // Board routes top level CRUD
+
+router.get('/getboard/:id', getBoard)
+
 router.post('/createboard', createBoard)
 
 router.put('/updateboardtitle', updateBoardTitle)
@@ -17,7 +20,7 @@ router.post('/createtodo', createToDo)
 
 router.put('/updatetodotitle', updateToDoTitle)
 
-router.delete('/deletetodo', deleteToDo)
+router.put('/deletetodo', deleteToDo)
 
 // Board routes related to cards
 

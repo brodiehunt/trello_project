@@ -1,8 +1,6 @@
 const initialState = {
   loggedInUser: null,
-  boards: [{
-    boardId: ''
-  }]
+  boards: []
 }
 
 

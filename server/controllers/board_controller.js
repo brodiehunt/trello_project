@@ -14,11 +14,21 @@ const createBoard = async (req, res, next) => {
     
     const newBoard =  await Board.create({title: board_title})
     let user =  await User.findById(req.user._id)
-    user.boards.push({board_ID: newBoard._id})
+    user.boards.push({board_ID: newBoard._id, title: board_title})
     await user.save()
     res.status(200).json({response: newBoard, message: "route working"})
     
   } catch(error) {
+    next(error)
+  }
+}
+
+const getBoard = async (req, res, next) => {
+  const {id} = req.params;
+  try{
+    const board = await Board.findById(id)
+    return res.status(200).json({data: board, message: "get board working"})
+  }catch(error) {
     next(error)
   }
 }
@@ -30,7 +40,11 @@ const updateBoardTitle = async (req, res, next) => {
     let board = await Board.findById(board_ID)
     board.title = board_title;
     let updatedBoard = await board.save()
-    res.status(200).json({response: updatedBoard, message: "title update working"})
+    let user = await User.findOneAndUpdate({_id: req.user._id},
+      {$set: {"boards.$[a].title": board_title}},
+      {new: true, arrayFilters: [{"a.board_ID": board_ID}]}
+    )
+    res.status(200).json({response: updatedBoard, userBoards: user.boards, message: "title update working"})
   } catch(error){
     next(error)
   }
@@ -57,5 +71,6 @@ const deleteBoard = async (req, res, next) => {
 module.exports = {
   createBoard,
   updateBoardTitle,
-  deleteBoard
+  deleteBoard,
+  getBoard
 }

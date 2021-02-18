@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import './Navbar.css'
 import {FaHome, FaBell, FaUser} from 'react-icons/fa'
 const Navbar = () => {
@@ -6,7 +7,7 @@ const Navbar = () => {
   return (
     <nav className="navbar-container">
       <div className="home-container">
-        <FaHome className="nav-icon" /> 
+      <Link to="/"><FaHome className="nav-icon" /> </Link>
       </div>
       <div className="logo-container">
         <h1 className="nav-heading">Trello Project</h1>

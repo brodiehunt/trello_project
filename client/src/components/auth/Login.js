@@ -38,6 +38,10 @@ const Login = ({history}) => {
           type: "SET_USER",
           data: response.email
         })
+        dispatch({
+          type: "SET_USER_BOARDS",
+          data: response.boards
+        })
         history.push('/')
       })
       .catch((error) => {

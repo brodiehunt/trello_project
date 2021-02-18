@@ -1,0 +1,23 @@
+.board-container {
+  margin-top: 60px;
+  
+  height: 90vh;
+  width: 100vw;
+}
+
+.board-top-bar {
+  height: 5vh;
+  width: 100vw;
+  background-color: lightblue;
+}
+
+.todos-container {
+  margin: 10px;
+  width: 98vw;
+  height: 80vh;
+  overflow-x: scroll;
+  white-space: nowrap;
+  display: flex;
+  flex-shrink: 0;
+}
+

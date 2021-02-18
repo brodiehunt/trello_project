@@ -37,7 +37,7 @@ const signInCreate = (req, res, next) => {
     }
     req.login(user, (err) => {
       if (err) {return console.log("err", err) };
-      return res.status(200).json({email: user.email, sessionID: req.sessionID, message: "User has been authenticated"})
+      return res.status(200).json({email: user.email, boards: user.boards, sessionID: req.sessionID, message: "User has been authenticated"})
     })
   })(req, res, next)
 }

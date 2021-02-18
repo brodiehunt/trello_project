@@ -7,10 +7,10 @@ const User = require('./../models/User')
 
 const createToDo = async (req, res, next) => {
 
-  const {board_ID, to_do_title} = req.body
+  const {board_ID, todoTitle} = req.body
 
   try {
-    let board = await Board.findOneAndUpdate({_id: board_ID}, { $push: {todos: { title: to_do_title}}}, {new: true})
+    let board = await Board.findOneAndUpdate({_id: board_ID}, { $push: {todos: { title: todoTitle}}}, {new: true})
     res.status(200).json({response: board, message: "To-do succussfully added"})
   } catch(error){
     next(error)
@@ -20,10 +20,10 @@ const createToDo = async (req, res, next) => {
 
 // Update to-do list title, takes board id, to-do id and todo-title and updates to-do title.
 const updateToDoTitle = async (req, res, next) => {
-  const {to_do_ID, board_ID, to_do_title} = req.body
+  const {to_do_ID, board_ID, todoTitle} = req.body
 
   try{
-    let board = await Board.findOneAndUpdate({"todos._id": to_do_ID}, {$set: {"todos.$.title": to_do_title}}, {new: true})
+    let board = await Board.findOneAndUpdate({"todos._id": to_do_ID}, {$set: {"todos.$.title": todoTitle}}, {new: true})
     
     res.status(200).json({response: board, message: "check the title is updated"})
   } catch(error){
@@ -36,7 +36,7 @@ const updateToDoTitle = async (req, res, next) => {
 
 const deleteToDo = async (req, res, next) => {
   const {to_do_ID} = req.body;
-
+  console.log("todoo id", to_do_ID)
   try {
     const board = await Board.findOneAndUpdate({"todos._id": to_do_ID}, {$pull: {todos: {_id: to_do_ID}}}, {new: true})
     return res.status(200).json({response: board, message: "delete completed, did it delete?"})

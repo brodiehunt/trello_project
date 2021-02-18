@@ -24,6 +24,10 @@ const User = new Schema({
     board_ID: {
       type: String,
       required: true
+    },
+    title: {
+      type: String,
+      required: true
     }
   }]
   
