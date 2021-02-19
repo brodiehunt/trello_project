@@ -10,6 +10,26 @@ const getBoard = async (board_ID) => {
   }
 }
 
+const createBoard = async (board_title) => {
+  try {
+    const response = await api.post('/boards/createboard', board_title);
+    return response.data
+  }catch(error){
+    throw error
+  }
+}
+
+const deleteBoard = async (board_ID) => {
+  try {
+    const response = await api.delete(`/boards/deleteboard/${board_ID}`)
+    return response.data
+  } catch(error) {
+    throw error
+  }
+}
+
 export {
-  getBoard
+  getBoard,
+  createBoard,
+  deleteBoard
 }

@@ -12,7 +12,7 @@ router.post('/createboard', createBoard)
 
 router.put('/updateboardtitle', updateBoardTitle)
 
-router.delete('/deleteboard', deleteBoard)
+router.delete('/deleteboard/:id', deleteBoard)
 
 // Board routes related to top level todo CRUD
 

@@ -9,14 +9,15 @@ const {createBoardUtil} = require('./../utils/boardUtils')
 // user creates board
 const createBoard = async (req, res, next) => {
 
-  const { board_title } = req.body
+  const { title } = req.body
+  console.log("req body", req.body)
   try {
     
-    const newBoard =  await Board.create({title: board_title})
+    const newBoard =  await Board.create({title: title})
     let user =  await User.findById(req.user._id)
-    user.boards.push({board_ID: newBoard._id, title: board_title})
+    user.boards.push({board_ID: newBoard._id, title: title})
     await user.save()
-    res.status(200).json({response: newBoard, message: "route working"})
+    res.status(200).json({response: newBoard, user: user, message: "route working"})
     
   } catch(error) {
     next(error)
@@ -51,14 +52,14 @@ const updateBoardTitle = async (req, res, next) => {
 }
 
 const deleteBoard = async (req, res, next) => {
-  const {board_ID} = req.body
+  const {id} = req.params
   
   try{
-    
-    let board = await Board.findByIdAndDelete(board_ID)
+    console.log("enter try block deleteboard")
+    let board = await Board.findByIdAndDelete(id)
     if (!board) throw "board with this id doesnt exist"
-    await User.updateOne({_id: req.user._id}, { $pull: { boards: {board_ID: board_ID}}})
-    res.status(200).json({message: "board should be deleted from collection and user array"})
+    let user = await User.findOneAndUpdate({_id: req.user._id}, { $pull: { boards: {board_ID: id}}}, {new: true})
+    res.status(200).json({message: "board should be deleted from collection and user array", response: board, user: user})
   } catch(error) {
     next(error)
   }
