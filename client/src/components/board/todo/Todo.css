@@ -85,3 +85,66 @@
 .delete-todo:hover {
   transform: scale(1.3)
 }
+
+/* New Todo css styling */
+
+.new-card-container {
+  width: 90%;
+  min-height: 35px;
+  margin: 10px auto;
+  position: relative;
+}
+
+.add-card-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.add-card-button:hover {
+  background: rgba(255,255,255, 0.6)
+}
+
+
+.add-card-icon {
+ margin: 0px 5px;
+}
+
+.add-card-text {
+  margin: 0;
+}
+
+.new-card-form {
+  width: 100%;
+  
+}
+
+.new-card-title-input {
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+  height: 60px;
+}
+
+.add-card-submit-button {
+  display: inline-block;
+  margin-top: 5px;
+  margin-right: 5px;
+  border-style: none;
+  border-radius: 5px;
+}
+
+.close-form-icon {
+  display: inline-block;
+  cursor: pointer;
+  
+  transition: 0.3s;
+}
+
+.close-form-icon:hover {
+  transform: scale(1.3);
+}

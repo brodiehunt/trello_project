@@ -3,7 +3,7 @@ const User = require('./../models/User')
 
 const createCard = async (req, res, next) => {
 
-  const {board_ID, card_title, to_do_ID} = req.body
+  const { card_title, to_do_ID} = req.body
 
   try {
     console.log("hitting try block createcard")
