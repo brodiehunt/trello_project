@@ -28,9 +28,7 @@ const BoardCard = ({board}) => {
     <Link to={`/board/${board.board_ID}`}>
       <div className="board-card-container">
         <h4 className="board-card-title">{board.title}</h4>
-
         <FaTrashAlt className="delete-board-icon" onClick={handleDeleteBoard}/>
-        
       </div>
     </Link>
   )

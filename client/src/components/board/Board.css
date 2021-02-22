@@ -9,6 +9,8 @@
   height: 5vh;
   width: 100vw;
   background-color: lightblue;
+  display: flex;
+  align-items: center;
 }
 
 .todos-container {
@@ -20,4 +22,30 @@
   display: flex;
   flex-shrink: 0;
 }
+
+.update-board-title-form{
+  margin-left: 10px;
+  height: 4vh;
+}
+
+.update-board-title-input {
+  border-style: hidden;
+  height: 100%;
+  border-radius: 3px;
+  background-color: rgba(255,255, 255, 0.4);
+  cursor: pointer;
+  transition: 0.3s;
+  
+}
+
+.update-board-title-input:hover {
+  background: rgba(255,255,255,0.6);
+}
+
+.update-board-title-input:focus {
+  border-style: visible;
+  background-color: white;
+}
+
+
 

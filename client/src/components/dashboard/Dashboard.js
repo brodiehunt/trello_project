@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux';
 import './dashboard.css'
 import BoardCard from './BoardCard'
 import NewBoardModal from './NewBoardModal'
-
+import {BsPerson} from 'react-icons/bs'
 
 const Dashboard = () => {
 
@@ -31,8 +31,14 @@ const Dashboard = () => {
       </div>
       <div className="create-board-container">
         <div className="new-board-card" onClick={showModalClick}>
-          Create Board container
+          Create New Board
         </div>
+      </div>
+      <div className="boards-title">
+        < BsPerson size={30} className="personal-boards-icon"/>
+        <h3 className="personal-boards-title">
+          Personal Boards
+        </h3>
       </div>
       <div className="boards">
         {boards.length > 0 && boards.map((board) => {

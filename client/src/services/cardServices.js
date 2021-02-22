@@ -11,7 +11,17 @@ const createCard = async (requestInfo) => {
   }
 }
 
+const deleteCard = async (requestInfo) => {
+  try{
+    const response = await api.put('/boards/deletecard', requestInfo)
+    return response.data
+  } catch(error) {
+    throw error
+  }
+}
+
 
 export {
-  createCard
+  createCard,
+  deleteCard
 }

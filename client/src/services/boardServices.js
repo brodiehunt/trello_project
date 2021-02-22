@@ -19,6 +19,15 @@ const createBoard = async (board_title) => {
   }
 }
 
+const updateTitle = async (board_title) => {
+  try{
+    const response = await api.put('/boards/updateboardtitle', board_title)
+    return response.data
+  }catch(error) {
+    throw error
+  }
+}
+
 const deleteBoard = async (board_ID) => {
   try {
     const response = await api.delete(`/boards/deleteboard/${board_ID}`)
@@ -31,5 +40,6 @@ const deleteBoard = async (board_ID) => {
 export {
   getBoard,
   createBoard,
-  deleteBoard
+  deleteBoard,
+  updateTitle
 }

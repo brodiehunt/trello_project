@@ -28,7 +28,7 @@ router.post('/createcard', createCard)
 
 router.put('/updatecard', updateCard)
 
-router.delete('/deletecard', deleteCard)
+router.put('/deletecard', deleteCard)
 
 // checklist routes
 
